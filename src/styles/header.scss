@@ -1,0 +1,18 @@
+@import "base";
+
+.firstname-text {
+    margin: 1rem 0;
+    font-size: 200px;
+    color: $font-green;
+    letter-spacing: -12px;
+    line-height:0.75em;
+    // text-shadow: 15px 15px #E76F51;
+}
+
+.lastname-text {
+    margin: 0 0.5rem;
+    font-size: 60px;
+    color: black;
+    letter-spacing: -5px;
+    line-height: 1px;
+}
