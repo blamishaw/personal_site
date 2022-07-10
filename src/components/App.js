@@ -1,18 +1,31 @@
-import React from 'react';
-import Header from './Header';
-import Body from './Body';
-import ProfileCard from './ProfileCard';
+import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import Menu from './Menu';
+import Modal from './Modal/Modal';
 import '../styles/app.scss'
 
 const App = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalPage, setModalPage] = useState('');
+
+  const close = () => setModalOpen(false);
+  const open = (page) => {
+    setModalPage(page);
+    setModalOpen(true);
+  }
+
   return (
-    <div className='container'>
-       <Header />
-       <Body />
-       <ProfileCard />
-       <h1 className='footer-grid-area'></h1>
+    <div>
+      <Menu openModal={open}/>
+      <AnimatePresence
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={true}
+      >
+        {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} page={modalPage}/>}
+      </AnimatePresence>
+      
     </div>
-   
   );
 }
 
